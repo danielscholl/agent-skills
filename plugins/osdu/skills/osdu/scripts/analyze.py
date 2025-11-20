@@ -113,11 +113,9 @@ def run_osdu_analyze(
     if provider:
         cmd.extend(["--provider", provider])
 
-    # Add format flag if not default terminal
-    if output_format == "json":
-        cmd.append("--json")
-    elif output_format == "markdown":
-        cmd.append("--markdown")
+    # Add output format if not default terminal (tty)
+    if output_format != "terminal":
+        cmd.extend(["--output", output_format])
 
     try:
         # Execute command

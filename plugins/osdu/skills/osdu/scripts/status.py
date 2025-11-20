@@ -112,11 +112,9 @@ def run_osdu_status(
     if no_release:
         cmd.append("--no-release")
 
-    # Add format flag if not default terminal
-    if output_format == "json":
-        cmd.append("--json")
-    elif output_format == "markdown":
-        cmd.append("--markdown")
+    # Add output format if not default terminal (tty)
+    if output_format != "terminal":
+        cmd.extend(["--output", output_format])
 
     try:
         # Execute command
