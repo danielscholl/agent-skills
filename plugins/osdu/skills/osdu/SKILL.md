@@ -50,6 +50,8 @@ allowed-tools: Bash
   - Shows which test jobs passed/failed in recent pipeline runs
   - Only tracks jobs that run tests (unit/integration/acceptance)
   - `--pipelines N` - Analyze last N pipelines (default: 10)
+    - ⚡ **Performance:** Default (10) ~30s, higher counts take proportionally longer
+    - Use 5-10 for quick checks, 20+ for thorough analysis
   - `--project NAME` - Filter by specific project path
   - `--venus` - Filter Venus provider pipelines only
   - `--no-release` - Exclude release pipelines
@@ -61,6 +63,8 @@ allowed-tools: Bash
   - Calculates test job pass rates per stage
   - Only analyzes jobs that run tests
   - `--pipelines N` - Analyze last N pipelines (default: 10)
+    - ⚡ **Performance:** Scales with count (10 pipelines ~30s, 20 ~60s, 50+ can take 2-3 minutes)
+    - Use 10-20 for quick flaky detection, 30-50 for comprehensive analysis
   - `--project NAME` - Filter by specific project path
   - `--stage STAGE` - Filter by test stage (unit/integration/acceptance)
   - `--provider PROVIDER` - Filter by cloud provider (azure/aws/gcp/ibm/cimpl)
