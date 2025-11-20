@@ -176,7 +176,7 @@ validate_plugin_structure() {
     local skill_count=0
     for skill_dir in "${plugin_dir}"/skills/*; do
         if [[ -d "$skill_dir" ]]; then
-            ((skill_count++))
+            skill_count=$((skill_count + 1))
             validate_skill_structure "$skill_dir"
         fi
     done
@@ -237,7 +237,7 @@ main() {
     local plugin_count=0
     for plugin_dir in plugins/*; do
         if [[ -d "$plugin_dir" ]]; then
-            ((plugin_count++))
+            plugin_count=$((plugin_count + 1))
             validate_plugin_structure "$plugin_dir"
             echo
         fi
