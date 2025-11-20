@@ -1,0 +1,27 @@
+{
+  "name": "osdu",
+  "displayName": "OSDU Quality Tools",
+  "version": "1.0.0",
+  "description": "GitLab CI/CD test quality analysis for OSDU projects. Provides pipeline status reporting, flaky test detection, reliability metrics, and cloud provider analytics through the osdu-quality CLI wrapper.",
+  "author": {
+    "name": "Daniel Scholl",
+    "email": "dascholl@microsoft.com",
+    "url": "https://github.com/danielscholl"
+  },
+  "keywords": [
+    "osdu",
+    "gitlab",
+    "ci-cd",
+    "test-quality",
+    "flaky-tests",
+    "pipeline-analysis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielscholl/agent-base"
+  },
+  "license": "MIT",
+  "skills": [
+    "osdu"
+  ]
+}

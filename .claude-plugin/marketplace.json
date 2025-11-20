@@ -13,6 +13,11 @@
       "name": "kalshi-markets",
       "path": "plugins/kalshi-markets",
       "description": "Real-time financial market data from Kalshi prediction markets"
+    },
+    {
+      "name": "osdu",
+      "path": "plugins/osdu",
+      "description": "GitLab CI/CD test quality analysis for OSDU projects"
     }
   ],
   "repository": "https://github.com/danielscholl/agent-base",
