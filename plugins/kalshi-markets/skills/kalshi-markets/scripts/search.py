@@ -38,23 +38,9 @@ import pandas as pd
 API_BASE_URL = "https://api.elections.kalshi.com/trade-api/v2"
 API_TIMEOUT = 30.0  # seconds
 USER_AGENT = "Kalshi-CLI/1.0"
-# Use project-level cache directory (relative to script location, not working directory)
-# Script is at: apps/4_skill/.claude/skills/kalshi-markets/scripts/search.py
-# Cache is at: .kalshi_cache/ (at project root)
-# Path navigation from script file:
-#   Path(__file__).resolve() = absolute path to search.py
-#   .parent = scripts/
-#   .parent.parent = kalshi-markets/
-#   .parent.parent.parent = skills/
-#   .parent.parent.parent.parent = .claude/
-#   .parent.parent.parent.parent.parent = 4_skill/
-#   .parent.parent.parent.parent.parent.parent = apps/
-#   .parent.parent.parent.parent.parent.parent.parent = beyond-mcp/ (project root)
-SCRIPT_FILE = Path(__file__).resolve()  # Resolve to absolute path first!
-PROJECT_ROOT = (
-    SCRIPT_FILE.parent.parent.parent.parent.parent.parent.parent
-)  # Navigate to project root
-CACHE_DIR = PROJECT_ROOT / ".kalshi_cache"
+# Use user cache directory for portable installation
+# This works regardless of where the script is installed (marketplace, manual, development)
+CACHE_DIR = Path.home() / ".cache" / "kalshi-markets"
 CACHE_TTL_HOURS = 6
 
 
