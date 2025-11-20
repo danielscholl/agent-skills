@@ -1,0 +1,26 @@
+{
+  "name": "kalshi-markets",
+  "displayName": "Kalshi Markets",
+  "version": "1.0.0",
+  "description": "Real-time financial market data from Kalshi prediction markets. Provides comprehensive market information, trading data, event series, and settlement tracking for prediction market analysis.",
+  "author": {
+    "name": "Daniel Scholl",
+    "email": "daniel.scholl@gmail.com",
+    "url": "https://github.com/danielscholl"
+  },
+  "keywords": [
+    "kalshi",
+    "prediction-markets",
+    "financial-data",
+    "market-data",
+    "trading"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielscholl/agent-base"
+  },
+  "license": "MIT",
+  "skills": [
+    "kalshi-markets"
+  ]
+}

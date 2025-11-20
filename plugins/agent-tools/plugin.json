@@ -1,0 +1,27 @@
+{
+  "name": "agent-tools",
+  "displayName": "Agent Tools",
+  "version": "1.0.0",
+  "description": "Essential tools for AI agents including web search and content fetching using Brave Search API. Provides semantic search with AI summaries and HTML-to-markdown conversion.",
+  "author": {
+    "name": "Daniel Scholl",
+    "email": "daniel.scholl@gmail.com",
+    "url": "https://github.com/danielscholl"
+  },
+  "keywords": [
+    "agent-tools",
+    "web-search",
+    "web-fetch",
+    "brave-api",
+    "content-fetching",
+    "html-markdown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielscholl/agent-base"
+  },
+  "license": "MIT",
+  "skills": [
+    "web"
+  ]
+}
