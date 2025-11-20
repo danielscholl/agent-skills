@@ -1,0 +1,20 @@
+{
+  "name": "agent-skills",
+  "displayName": "Agent Skills Marketplace",
+  "description": "Production-ready Claude Code plugins for web access and financial market data",
+  "owner": "danielscholl",
+  "plugins": [
+    {
+      "name": "agent-tools",
+      "path": "plugins/agent-tools",
+      "description": "Essential agent tools for web search and content fetching"
+    },
+    {
+      "name": "kalshi-markets",
+      "path": "plugins/kalshi-markets",
+      "description": "Real-time financial market data from Kalshi prediction markets"
+    }
+  ],
+  "repository": "https://github.com/danielscholl/agent-base",
+  "license": "MIT"
+}

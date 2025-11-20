@@ -1,0 +1,75 @@
+name: Validate Plugin Marketplace
+
+on:
+  push:
+    branches: [ main, marketplace ]
+  pull_request:
+    branches: [ main, marketplace ]
+
+jobs:
+  validate:
+    name: Validate Plugin Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Run structure validation script
+        run: bash scripts/validate-plugins.sh
+
+      - name: Install Python test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pyyaml
+
+      - name: Run marketplace schema tests
+        run: pytest tests/test_marketplace_schema.py -v
+
+      - name: Validate script syntax
+        run: |
+          for script in plugins/*/skills/*/scripts/*.py; do
+            if [[ -f "$script" ]]; then
+              echo "Validating $script"
+              python -m py_compile "$script"
+            fi
+          done
+
+      - name: Test script help commands
+        run: |
+          for script in plugins/*/skills/*/scripts/*.py; do
+            if [[ -f "$script" ]]; then
+              echo "Testing help for $script"
+              uv run "$script" --help || true
+            fi
+          done
+
+  summary:
+    name: Validation Summary
+    runs-on: ubuntu-latest
+    needs: validate
+    if: always()
+
+    steps:
+      - name: Check validation results
+        run: |
+          if [[ "${{ needs.validate.result }}" == "success" ]]; then
+            echo "✓ All validation checks passed!"
+            exit 0
+          else
+            echo "✗ Validation failed - please check the logs above"
+            exit 1
+          fi
