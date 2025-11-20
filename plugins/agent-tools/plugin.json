@@ -5,7 +5,7 @@
   "description": "Essential tools for AI agents including web search and content fetching using Brave Search API. Provides semantic search with AI summaries and HTML-to-markdown conversion.",
   "author": {
     "name": "Daniel Scholl",
-    "email": "daniel.scholl@gmail.com",
+    "email": "dascholl@microsoft.com",
     "url": "https://github.com/danielscholl"
   },
   "keywords": [

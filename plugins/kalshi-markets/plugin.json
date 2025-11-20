@@ -5,7 +5,7 @@
   "description": "Real-time financial market data from Kalshi prediction markets. Provides comprehensive market information, trading data, event series, and settlement tracking for prediction market analysis.",
   "author": {
     "name": "Daniel Scholl",
-    "email": "daniel.scholl@gmail.com",
+    "email": "dascholl@microsoft.com",
     "url": "https://github.com/danielscholl"
   },
   "keywords": [
