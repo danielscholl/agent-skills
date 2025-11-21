@@ -2,6 +2,17 @@
 name: kalshi-markets
 description: "Kalshi prediction market data (prices, odds, orderbooks, trades). Use for prediction markets, Kalshi, betting odds, election and sports betting, market forecasts. Provides real-time market data, event series information, and comprehensive trading analytics."
 version: 1.0.0
+brief_description: "Kalshi prediction markets and betting odds"
+triggers:
+  keywords: [kalshi, market, markets, prediction, betting, odds, election, sports, forecast, probability, orderbook, trade, price, bet, wager]
+  verbs: [bet, predict, forecast, trade, check, get]
+  patterns:
+    - "prediction.*market"
+    - "betting.*odds"
+    - "election.*(?:odds|forecast|probability)"
+    - "sports.*(?:betting|odds)"
+    - "market.*(?:forecast|prediction)"
+    - "what.*(?:odds|probability)"
 allowed-tools: Bash
 ---
 

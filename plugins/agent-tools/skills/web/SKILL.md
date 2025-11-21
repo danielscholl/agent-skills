@@ -2,6 +2,18 @@
 name: web
 description: "Search the web using Brave Search API and fetch page content with HTML-to-markdown conversion. Use when user needs current information, online documentation, or specific URL content beyond knowledge cutoff."
 version: 1.0.0
+brief_description: "Web search and page fetching with Brave API"
+triggers:
+  keywords: [web, search, internet, online, fetch, url, webpage, website, current, recent, latest, news, documentation, brave]
+  verbs: [search, fetch, get, find, lookup, retrieve]
+  patterns:
+    - "https?://"
+    - "www\\."
+    - "search.*for"
+    - "look.*up"
+    - "find.*information"
+    - "current.*(?:news|info|data)"
+    - "recent.*(?:news|info|data)"
 allowed-tools: Bash, WebFetch, WebSearch
 ---
 

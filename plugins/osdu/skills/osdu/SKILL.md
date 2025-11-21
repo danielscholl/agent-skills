@@ -2,6 +2,16 @@
 name: osdu
 description: "GitLab CI/CD test job reliability analysis for OSDU projects. Tracks test job (unit/integration/acceptance) pass/fail status across pipeline runs. Use for test job status, flaky test job detection, test reliability/quality metrics, cloud provider analytics. Wraps osdu-quality CLI."
 version: 2.0.0
+brief_description: "OSDU GitLab CI/CD test reliability analysis"
+triggers:
+  keywords: [osdu, gitlab, quality, ci, cd, pipeline, test, job, reliability, flaky, acceptance, integration, unit, azure, aws, gcp, cloud, provider]
+  verbs: [analyze, track, monitor, test, check]
+  patterns:
+    - "test.*(?:reliability|status|job)"
+    - "pipeline.*(?:analysis|status)"
+    - "flaky.*test"
+    - "ci.*cd"
+    - "gitlab.*(?:pipeline|job)"
 allowed-tools: Bash
 ---
 

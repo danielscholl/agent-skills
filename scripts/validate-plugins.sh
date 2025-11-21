@@ -156,6 +156,36 @@ validate_skill_manifest() {
     success "SKILL.md validation passed: $skill_file"
 }
 
+validate_description_tokens() {
+    local skill_file="$1"
+
+    # Extract description field value from YAML frontmatter
+    local desc
+    desc=$(sed -n '/^description:/p' "$skill_file" | sed 's/description: *"//' | sed 's/"$//' | sed "s/'$//" | sed "s/^'//")
+
+    if [[ -z "$desc" ]]; then
+        warning "$skill_file: Could not extract description field"
+        return
+    fi
+
+    # Count words in description
+    local word_count
+    word_count=$(echo "$desc" | wc -w | tr -d ' ')
+
+    # Estimate tokens (words * 1.3, rounded)
+    local token_estimate
+    token_estimate=$(echo "scale=0; ($word_count * 13 + 5) / 10" | bc)
+
+    # Check against threshold
+    if [[ $token_estimate -gt 50 ]]; then
+        error "$skill_file description exceeds 50 token limit (~$token_estimate tokens, $word_count words)"
+    elif [[ $token_estimate -gt 40 ]]; then
+        warning "$skill_file description approaching token limit (~$token_estimate tokens, $word_count words)"
+    else
+        success "Description token count OK: ~$token_estimate tokens ($word_count words)"
+    fi
+}
+
 validate_plugin_structure() {
     local plugin_dir="$1"
     local plugin_name
@@ -194,6 +224,9 @@ validate_skill_structure() {
     # Check SKILL.md
     local skill_md="${skill_dir}/SKILL.md"
     validate_skill_manifest "$skill_md"
+
+    # Validate description token count (ADR-003 compliance)
+    validate_description_tokens "$skill_md"
 
     # Check scripts/ directory
     if [[ ! -d "${skill_dir}/scripts" ]]; then
